@@ -99,7 +99,7 @@ class Housing extends Component {
           <title>Housing</title>
         </Head>
 
-        <h3 style={{ textAlign: "center" }}>Median HDB Resale Prices ({q})</h3>
+        <h3>Median HDB Resale Prices ({q})</h3>
         {data.length ? (
           <BarChart
             className="center"
