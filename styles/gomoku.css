@@ -1,0 +1,10 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  background-color: rgb(158, 204, 171);
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+}
