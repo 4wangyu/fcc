@@ -9,7 +9,7 @@ body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background: #decaca;
+  background: #c09a9a;
 }
 
 .grid {
@@ -48,7 +48,7 @@ body {
 }
 
 .unset:hover {
-  background: #decaca;
+  background: #c09a9a;
   opacity: 0.5;
   border-radius: 50%;
 }
