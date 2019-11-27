@@ -40,11 +40,15 @@ body {
 .black {
   background: black;
   border-radius: 50%;
-  z-index: 2;
 }
 
 .white {
   background: white;
   border-radius: 50%;
-  z-index: 2;
+}
+
+.unset:hover {
+  background: #decaca;
+  opacity: 0.5;
+  border-radius: 50%;
 }

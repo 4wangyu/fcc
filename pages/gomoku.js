@@ -27,7 +27,7 @@ class Gomoku extends Component {
               return (
                 <div
                   key={i}
-                  className={v ? (v == "black" ? "black" : "white") : ""}
+                  className={v ? (v == "black" ? "black" : "white") : "unset"}
                   onClick={() => {
                     pieces[i] = player;
                     this.setState({
