@@ -1,10 +1,33 @@
-.parent {
+body {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+}
+
+.grid {
+  position: absolute;
   display: grid;
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: repeat(15, 1fr);
-  grid-column-gap: 1px;
-  grid-row-gap: 1px;
   background-color: rgb(158, 204, 171);
-  height: -webkit-fill-available;
-  width: -webkit-fill-available;
+  height: 600px;
+  width: 600px;
+}
+
+.board {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  background-color: rgb(167, 189, 70);
+  height: 560px;
+  width: 560px;
 }
