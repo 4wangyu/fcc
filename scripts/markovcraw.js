@@ -61,7 +61,9 @@ puppeteer.launch().then(async browser => {
     currentPage++;
   }
 
-  await fs.writeFile("quote.json", JSON.stringify(Quotes), function(err) {
+  await fs.writeFile("quote.json", JSON.stringify(Quotes, null, 2), function(
+    err
+  ) {
     if (err) console.log(err);
     console.log("Successfully Written to File.");
   });
