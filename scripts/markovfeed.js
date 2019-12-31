@@ -8,7 +8,7 @@ const fs = require("fs"),
   filename = process.argv[2];
 const quotes = JSON.parse(fs.readFileSync(filename, "utf8"));
 
-const feed = new Map();
+const feed = {};
 
 quotes.forEach(el => {
   const quote = el.quote;
@@ -23,21 +23,17 @@ quotes.forEach(el => {
   for (let i = 0; i < words.length - 1; i++) {
     const left = words[i];
     const right = words[i + 1];
-    const value = feed.get(left) || [];
+    const value = feed[left] || [];
     value.push(right);
-    feed.set(left, value);
+    feed[left] = value;
   }
   const last = words[words.length - 1];
-  const value = feed.get(last) || [];
+  const value = feed[last] || [];
   value.push("");
-  feed.set(last, value);
+  feed[last] = value;
 });
 
-fs.writeFile(
-  "feed.json",
-  JSON.stringify(Array.from(feed.entries()), null, 2),
-  function(err) {
-    if (err) console.log(err);
-    console.log("Successfully Written to File.");
-  }
-);
+fs.writeFile("feed.json", JSON.stringify(feed, null, 2), function(err) {
+  if (err) console.log(err);
+  console.log("Successfully Written to File.");
+});
