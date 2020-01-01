@@ -3,7 +3,8 @@ import Link from "next/link";
 
 const links = [
   { href: "housing", label: "Housing" },
-  { href: "gomoku", label: "Gomoku" }
+  { href: "gomoku", label: "Gomoku" },
+  { href: "markov", label: "Markov" }
 ].map(link => {
   link.key = `nav-link-${link.href}-${link.label}`;
   return link;
@@ -12,11 +13,11 @@ const links = [
 const Nav = () => (
   <nav>
     <ul>
-      <li>
+      {/* <li>
         <Link href="/">
           <a>Home</a>
         </Link>
-      </li>
+      </li> */}
       {links.map(({ key, href, label }) => (
         <li key={key}>
           <a href={href}>{label}</a>

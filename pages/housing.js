@@ -17,7 +17,10 @@ import moment from "moment";
 import "../styles/housing.css";
 
 let limit = 1;
-let q = moment().year() + "-Q" + (moment().quarter() - 2);
+let q =
+  moment().quarter() < 3
+    ? "" + (moment().year() - 1) + "-Q" + (moment().quarter() + 2)
+    : "" + moment().year() + "-Q" + (moment().quarter() - 2);
 const apiUrl =
   "https://data.gov.sg/api/action/datastore_search?resource_id=a5ddfc4d-0e43-4bfe-8f51-e504e1365e27";
 
@@ -99,44 +102,46 @@ class Housing extends Component {
           <title>Housing</title>
         </Head>
 
-        <h3>Median HDB Resale Prices ({q})</h3>
-        {data.length ? (
-          <BarChart
-            className="center"
-            width={1200}
-            height={600}
-            data={data}
-            margin={{
-              top: 20,
-              right: 30,
-              left: 20,
-              bottom: 5
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis
-              dataKey="town"
-              tick={{ angle: -45 }}
-              interval={0}
-              textAnchor="end"
-              height={150}
-            />
-            <YAxis />
-            <Tooltip />
-            <Bar
-              dataKey="price"
-              fill="#8884d8"
-              shape={<TriangleBar />}
-              label={{ position: "top" }}
+        <div className="housing">
+          <h3 className="title">Median HDB Resale Prices ({q})</h3>
+          {data.length ? (
+            <BarChart
+              className="center"
+              width={1200}
+              height={600}
+              data={data}
+              margin={{
+                top: 20,
+                right: 30,
+                left: 20,
+                bottom: 5
+              }}
             >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={colors[index % 10]} />
-              ))}
-            </Bar>
-          </BarChart>
-        ) : (
-          <></>
-        )}
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis
+                dataKey="town"
+                tick={{ angle: -45 }}
+                interval={0}
+                textAnchor="end"
+                height={150}
+              />
+              <YAxis />
+              <Tooltip />
+              <Bar
+                dataKey="price"
+                fill="#8884d8"
+                shape={<TriangleBar />}
+                label={{ position: "top" }}
+              >
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={colors[index % 10]} />
+                ))}
+              </Bar>
+            </BarChart>
+          ) : (
+            <></>
+          )}
+        </div>
       </>
     );
   }
