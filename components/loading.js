@@ -38,7 +38,7 @@ const Item = styled.div`
   width: ${props => sizeItem[props.size] || sizeItem["default"]};
   height: ${props => sizeItem[props.size] || sizeItem["default"]};
   border-radius: 50%;
-  background: ${props => props.color || "#00adb5"};
+  background: ${props => props.color || "#808080"};
   animation: ${animate} ${props => props.speed || 0.8}s ease-in-out alternate
     infinite;
 `;
