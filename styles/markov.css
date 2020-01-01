@@ -1,0 +1,25 @@
+.face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #9dbac5;
+}
+
+.bubble {
+  min-width: 7.45833rem;
+  max-width: 70%;
+  min-height: 2.25rem;
+  background: rgba(206, 206, 206, 0.5);
+  padding: 0.5rem 0.85rem;
+  border-radius: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+}
