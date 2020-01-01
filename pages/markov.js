@@ -87,7 +87,7 @@ class Markov extends Component {
             {loading ? <Loading /> : <span className="message">{message}</span>}
           </div>
 
-          <div>Press Space for Next</div>
+          <div>Press Space/Click Screen for Next</div>
         </div>
       </>
     );
