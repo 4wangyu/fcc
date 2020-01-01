@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 
 const commonStyle = {
   margin: "auto",
-  position: "absolute",
   left: 0,
   right: 0,
   top: 0,
@@ -27,7 +26,6 @@ const animate = keyframes`
 
 const LoadingContainer = styled.div`
   width: 60px;
-  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;

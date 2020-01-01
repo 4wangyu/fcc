@@ -16,6 +16,7 @@ class Markov extends Component {
   async componentDidMount() {
     await this.loadMap();
     this.talk();
+    document.addEventListener("keydown", e => this.spaceFunction(e), false);
   }
 
   loadMap() {
@@ -58,6 +59,16 @@ class Markov extends Component {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  spaceFunction(event) {
+    if (event.keyCode === 32) {
+      this.talk();
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", e => this.spaceFunction(e), false);
+  }
+
   render() {
     const { message, loading } = this.state;
 
@@ -67,10 +78,12 @@ class Markov extends Component {
           <title>Markov</title>
         </Head>
 
-        <div className="face">
+        <div className="face" onKeyPress={this.handleKeyPress}>
           <div className="bubble">
             {loading ? <Loading /> : <span className="message">{message}</span>}
           </div>
+
+          <div>Press Space for Next</div>
         </div>
       </>
     );
