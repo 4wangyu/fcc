@@ -15,7 +15,8 @@
     "next": "9.1.2",
     "react": "16.11.0",
     "react-dom": "16.11.0",
-    "recharts": "^1.8.5"
+    "recharts": "^1.8.5",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
