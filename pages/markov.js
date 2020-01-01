@@ -78,7 +78,11 @@ class Markov extends Component {
           <title>Markov</title>
         </Head>
 
-        <div className="face" onKeyPress={this.handleKeyPress}>
+        <div
+          className="face"
+          onKeyPress={this.handleKeyPress}
+          onClick={() => this.talk()}
+        >
           <div className="bubble">
             {loading ? <Loading /> : <span className="message">{message}</span>}
           </div>
