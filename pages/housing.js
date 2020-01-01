@@ -103,7 +103,7 @@ class Housing extends Component {
         </Head>
 
         <div className="housing">
-          <h3>Median HDB Resale Prices ({q})</h3>
+          <h3 className="title">Median HDB Resale Prices ({q})</h3>
           {data.length ? (
             <BarChart
               className="center"
