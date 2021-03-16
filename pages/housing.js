@@ -16,13 +16,15 @@ import axios from "axios";
 import moment from "moment";
 import "../styles/housing.css";
 
-let limit = 1;
-let q =
+const quarter =
   moment().quarter() < 3
     ? "" + (moment().year() - 1) + "-Q" + (moment().quarter() + 2)
     : "" + moment().year() + "-Q" + (moment().quarter() - 2);
+
+let q = quarter.slice(0,4);
+let limit = 1;
 const apiUrl =
-  "https://data.gov.sg/api/action/datastore_search?resource_id=42ff9cfe-abe5-4b54-beda-c88f9bb438ee";
+  "https://data.gov.sg/api/action/datastore_search?resource_id=a5ddfc4d-0e43-4bfe-8f51-e504e1365e27";
 
 const colors = scaleOrdinal(schemeCategory10).range();
 
@@ -75,16 +77,17 @@ class Housing extends Component {
             }
           })
           .then(res => {
-            this.setState({
-              data: res.data.result.records
+            const dataWithDuplicate = res.data.result.records
                 .filter(
-                  r =>
-                    r.flat_type === "3-ROOM" && !["na", "-"].includes(r.price)
+                  r => r.quarter === quarter && r.flat_type === "3-ROOM" && !["na", "-"].includes(r.price)
                 )
                 .map(r => {
+                  console.log(r);
                   r.price = parseFloat(r.price);
                   return r;
-                })
+                });
+            this.setState({
+              data: dataWithDuplicate.slice(0, dataWithDuplicate.length/2)
             });
           });
       })
@@ -103,7 +106,7 @@ class Housing extends Component {
         </Head>
 
         <div className="housing">
-          <h3 className="title">Median HDB Resale Prices ({q})</h3>
+          <h3 className="title">Median HDB Resale Prices ({quarter})</h3>
           {data.length ? (
             <BarChart
               className="center"
