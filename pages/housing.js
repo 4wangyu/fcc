@@ -22,7 +22,7 @@ let q =
     ? "" + (moment().year() - 1) + "-Q" + (moment().quarter() + 2)
     : "" + moment().year() + "-Q" + (moment().quarter() - 2);
 const apiUrl =
-  "https://data.gov.sg/api/action/datastore_search?resource_id=a5ddfc4d-0e43-4bfe-8f51-e504e1365e27";
+  "https://data.gov.sg/api/action/datastore_search?resource_id=52e93430-01b7-4de0-80df-bc83d0afed40";
 
 const colors = scaleOrdinal(schemeCategory10).range();
 
